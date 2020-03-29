@@ -166,11 +166,11 @@ module Conf_map = struct
         begin match find Tls_cert t, find Tls_key t with
           |  Some _, Some _ -> Ok ()
           |  None, None ->
-            Error "does not have  TLS certificate and key"
+            Error "missing tls-cert and tls-key"
           | Some _, None -> 
-            Error "no tls certificate"
+            Error "missing tls-cert"
           | None, Some _ ->
-            Error "no tls key"
+            Error "missing tls-key"
           (* ^-- TODO or has -pkcs12 *)
         end  
       )
